@@ -7,7 +7,7 @@
         <PackageTags>badgerdb;cache;db</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <MinVerTagPrefix>dotnet-client-v</MinVerTagPrefix>
-        <PackageProjectUrl>https://github.com/meeron/honey-badger</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/honey-badger-io/HoneyBadger.Client</PackageProjectUrl>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
