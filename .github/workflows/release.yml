@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        ref: 'dotnet-client-v${{ github.event.inputs.version }}'
+        ref: 'v${{ github.event.inputs.version }}'
     
     - name: Setup dotnet 7.0
       uses: actions/setup-dotnet@v1
