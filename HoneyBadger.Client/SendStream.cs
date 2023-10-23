@@ -1,4 +1,5 @@
 using Google.Protobuf;
+using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
 using HoneyBadger.Client.Hb;
 
@@ -6,9 +7,9 @@ namespace HoneyBadger.Client;
 
 public class SendStream : IDisposable
 {
-    private readonly AsyncClientStreamingCall<SendStreamReq, EmptyResult> _grpcStream;
+    private readonly AsyncClientStreamingCall<SendStreamReq, Empty> _grpcStream;
 
-    internal SendStream(AsyncClientStreamingCall<SendStreamReq, EmptyResult> grpcStream)
+    internal SendStream(AsyncClientStreamingCall<SendStreamReq, Empty> grpcStream)
     {
         _grpcStream = grpcStream;
     }
