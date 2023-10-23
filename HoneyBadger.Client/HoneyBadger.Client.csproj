@@ -6,7 +6,7 @@
         <Copyright>Copyright Miron Jakubowski</Copyright>
         <PackageTags>badgerdb;cache;db</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <MinVerTagPrefix>dotnet-client-v</MinVerTagPrefix>
+        <MinVerTagPrefix>v</MinVerTagPrefix>
         <PackageProjectUrl>https://github.com/honey-badger-io/HoneyBadger.Client</PackageProjectUrl>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <IncludeSymbols>true</IncludeSymbols>
