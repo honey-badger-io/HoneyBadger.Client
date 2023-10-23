@@ -2,11 +2,13 @@ namespace HoneyBadger.Client;
 
 public interface IHoneyBadgerDb
 {
-    Task Create(string name, CreateDbOptions opt);
+    Task CreateAsync(string name, CreateDbOptions opt);
     
-    Task Drop(string name);
+    Task DropAsync(string name);
 
-    Task Ensure(string name, CreateDbOptions opt);
+    Task EnsureAsync(string name, CreateDbOptions opt);
+    
+    void Ensure(string name, CreateDbOptions opt);
 }
 
 public class CreateDbOptions

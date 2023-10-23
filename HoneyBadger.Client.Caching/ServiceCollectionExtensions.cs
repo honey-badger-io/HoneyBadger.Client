@@ -8,9 +8,10 @@ public static class ServiceCollectionExtensions
     public static void AddHoneyBadgerDistributedCache(
         this IServiceCollection services,
         string address,
-        string db)
+        string db,
+        CreateDbOptions? options = null)
     {
         services.AddSingleton<IDistributedCache>(_ =>
-            new HoneyBadgerDistributedCache(address, db));
+            new HoneyBadgerDistributedCache(address, db, options ?? CreateDbOptions.InMemory()));
     }
 }

@@ -177,7 +177,7 @@ public class DataTests : IDisposable
         result["read-bytes-2"].ShouldBe(new byte[] { 2 });
     }
 
-    private Task EnsureDb() => _client.Db.Ensure(Db, CreateDbOptions.InMemory());
+    private Task EnsureDb() => _client.Db.EnsureAsync(Db, CreateDbOptions.InMemory());
 
     public void Dispose()
     {

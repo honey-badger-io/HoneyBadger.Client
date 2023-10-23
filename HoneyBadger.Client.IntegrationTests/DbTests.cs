@@ -16,16 +16,16 @@ public class DbTests
     public async Task CreateInMemoryDb()
     {
         // Act
-        await _db.Create("in-memory-db", CreateDbOptions.InMemory());
-        await _db.Drop("in-memory-db");
+        await _db.CreateAsync("in-memory-db", CreateDbOptions.InMemory());
+        await _db.DropAsync("in-memory-db");
     }
     
     [Fact]
     public async Task CreateOnDiskDb()
     {
         // Act
-        await _db.Create("on-disk-db", CreateDbOptions.OnDisk());
-        await _db.Drop("on-disk-db");
+        await _db.CreateAsync("on-disk-db", CreateDbOptions.OnDisk());
+        await _db.DropAsync("on-disk-db");
     }
     
     [Fact]
@@ -36,9 +36,9 @@ public class DbTests
         var options = CreateDbOptions.InMemory();
         
         // Act
-        await _db.Create(db, options);
-        var ex = await Assert.ThrowsAsync<RpcException>(() => _db.Create(db, options));
-        await _db.Drop(db);
+        await _db.CreateAsync(db, options);
+        var ex = await Assert.ThrowsAsync<RpcException>(() => _db.CreateAsync(db, options));
+        await _db.DropAsync(db);
         
         // Assert
         ex.ShouldNotBeNull();
@@ -52,8 +52,8 @@ public class DbTests
         var options = CreateDbOptions.InMemory();
         
         // Act
-        await _db.Create(db, options);
-        await _db.Ensure(db, options);
-        await _db.Drop(db);
+        await _db.CreateAsync(db, options);
+        await _db.EnsureAsync(db, options);
+        await _db.DropAsync(db);
     }
 }

@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.ComTypes;
 using Grpc.Core;
 using HoneyBadger.Client.Hb;
 
@@ -12,7 +13,7 @@ internal class HoneyBadgerDb : IHoneyBadgerDb
         _dbClient = new Db.DbClient(channel);
     }
 
-    public async Task Create(string name, CreateDbOptions opt)
+    public async Task CreateAsync(string name, CreateDbOptions opt)
     {
         Guard.NotNullOrEmpty(nameof(name), name);
 
@@ -26,7 +27,7 @@ internal class HoneyBadgerDb : IHoneyBadgerDb
         });
     }
 
-    public async Task Drop(string name)
+    public async Task DropAsync(string name)
     {
         await _dbClient.DropAsync(new DropDbRequest
         {
@@ -34,9 +35,21 @@ internal class HoneyBadgerDb : IHoneyBadgerDb
         });
     }
 
-    public async Task Ensure(string name, CreateDbOptions opt)
+    public async Task EnsureAsync(string name, CreateDbOptions opt)
     {
         await _dbClient.EnsureDbAsync(new CreateDbReq
+        {
+            Name = name,
+            Opt = new CreateDbOpt
+            {
+                InMemory = opt.InMem,
+            }
+        });
+    }
+
+    public void Ensure(string name, CreateDbOptions opt)
+    {
+        _dbClient.EnsureDb(new CreateDbReq
         {
             Name = name,
             Opt = new CreateDbOpt
